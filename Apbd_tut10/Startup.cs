@@ -28,7 +28,7 @@ namespace Apbd_tut10
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<StudentContext>(o => o.UseSqlServer(Configuration["ConnectionStrings:DefaultConnectionString"]));
-            services.AddScoped<IStudentsServiceDb,SqlServerStudentDbService>();
+            services.AddScoped<IStudentsServiceDb, SqlServerStudentDbService>();
             services.AddControllers();
         }
 

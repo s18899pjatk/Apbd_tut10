@@ -197,7 +197,7 @@ namespace Apbd_tut10.Services
             // finding such enrollment
             var nextIdEnrollment = _studentContext
                 .Enrollment
-                .Where(s => s.IdStudy.Equals(idStudy) && s.Semester == req.Semester+1)
+                .Where(s => s.IdStudy.Equals(idStudy) && s.Semester == req.Semester + 1)
                 .Select(s => s.IdEnrollment).FirstOrDefault();
 
             // last index of all enrollments
@@ -205,9 +205,9 @@ namespace Apbd_tut10.Services
                 .Enrollment
                 .Max(e => e.IdEnrollment);
 
-            if(nextIdEnrollment == 0)
+            if (nextIdEnrollment == 0)
             {
-               
+
 
                 var enrollmet = new Enrollment()
                 {
@@ -216,7 +216,7 @@ namespace Apbd_tut10.Services
                     IdStudy = idStudy,
                     StartDate = DateTime.Now.Date
                 };
-                 nextIdEnrollment = lastIdEnrollment + 1;
+                nextIdEnrollment = lastIdEnrollment + 1;
                 _studentContext.Add(enrollmet);
                 _studentContext.SaveChanges();
 
@@ -261,10 +261,10 @@ namespace Apbd_tut10.Services
 
              }*/
             return new PromoteStudentResponse
-                {
-                    Name = req.Name,
-                    Semester = req.Semester + 1
-                }; 
+            {
+                Name = req.Name,
+                Semester = req.Semester + 1
+            };
         }
     }
 }
